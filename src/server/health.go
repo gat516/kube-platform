@@ -14,8 +14,6 @@ type healthResponse struct {
 }
 
 // handleHealth responds with the service liveness status.
-// It is intentionally lightweight — no external dependency checks — so that
-// Kubernetes liveness probes get a fast, reliable response.
 func handleHealth(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
